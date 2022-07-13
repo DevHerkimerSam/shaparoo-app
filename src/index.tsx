@@ -1,15 +1,13 @@
 // Import deps
-import React from 'react'
-import { render } from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 // Import components
-import { Shaparoo } from './components/shaparoo'
+import App from "./App";
 
 // Import styles
-import './styles/styles.css'
-
-// Find div container
-const rootElement = document.getElementById('root')
+import "./styles/styles.css";
 
 // Render Shaparoo component in the DOM
-render(<Shaparoo />, rootElement)
+const root = ReactDOM.createRoot(document.getElementById("root")!);
+root.render(<App />);

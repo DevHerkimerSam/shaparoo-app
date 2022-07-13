@@ -1,0 +1,39 @@
+/* nav styles */
+
+.container-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav li{
+  display: block;
+  font-size: 1.5rem;
+  margin-left: 2em;
+  font-weight: bolder;
+}
+
+nav a {
+  text-decoration: none;
+  color: darkslateblue
+}
+
+nav a:hover,
+nav a:focus {
+  color:black;
+}
+
+.identity a{
+  text-decoration: none;
+  color: #704214;
+  font-weight: 900;
+  font-size: 3em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
