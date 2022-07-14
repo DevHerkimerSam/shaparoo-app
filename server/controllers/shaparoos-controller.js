@@ -1,11 +1,29 @@
 // Import database
 const knex = require('./../db')
 
+// Retrieve one shaparoo
+exports.shaparooGet = async (req, res) => {
+  // Get all shaparoos from database
+  knex
+    .select('*') // select all columsn
+    .from('shaparoos') // from 'shaparoos' table
+    .where('id', req.body.id) // find correct record based on id
+    .first().then((row) => row)
+    .then(userData => {
+      // Send shaparooss extracted from database in response
+      res.json(userData)
+    })
+    .catch(err => {
+      // Send a error message in response
+      res.json({ message: `There was an error retrieving shaparoo: ${err}` })
+    })
+}
+
 // Retrieve all shaparoos
 exports.shaparoosAll = async (req, res) => {
   // Get all shaparoos from database
   knex
-    .select('*') // select all records
+    .select('*') // select all columns
     .from('shaparoos') // from 'shaparoos' table
     .then(userData => {
       // Send shaparooss extracted from database in response
@@ -35,6 +53,27 @@ exports.shaparoosCreate = async (req, res) => {
       res.json({ message: `There was an error creating ${req.body.name} shaparoo: ${err}` })
     })
 }
+
+// Update a shaparoo
+exports.shaparoosUpdate = async (req, res) => {
+  // Add new shaparoo to database
+  knex('shaparoos')
+  .where('id', req.body.id) // find correct record based on id
+  .update({ // update the shaparoo
+    'name': req.body.name,
+    'form': req.body.form,
+    'color': req.body.color
+  })
+  .then(() => {
+    // Send a success message in response
+    res.json({ message: `Shaparoo named \'${req.body.name}\' a ${req.body.color} ${req.body.form} updated.` })
+  })
+  .catch(err => {
+    // Send a error message in response
+    res.json({ message: `There was an error updating ${req.body.name} shaparoo: ${err}` })
+  })
+}
+
 
 // Remove specific shaparoo
 exports.shaparoosDelete = async (req, res) => {
