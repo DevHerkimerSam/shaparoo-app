@@ -4,22 +4,11 @@ import React from "react";
 // Import components
 import { ShaparooListRow } from "./shaparoo-list-row";
 
+// Import interfaces
+import { ShaparooUI, ShaparooListUI } from "./shaparoo-types";
+
 // Import styles
 import "./../styles/shaparoo-list.css";
-
-// Create interfaces
-export interface ShaparooUI {
-  id: number;
-  name: string;
-  form: string;
-  color: string;
-}
-
-export interface ShaparooListUI {
-  shaparoos: ShaparooUI[];
-  loading: boolean;
-  handleShaparooRemove: (id: number, name: string) => void;
-}
 
 // Create ShaparooList component
 export const ShaparooList = (props: ShaparooListUI) => {
