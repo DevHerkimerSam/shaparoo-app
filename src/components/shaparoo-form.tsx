@@ -1,5 +1,5 @@
 // Import deps
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -15,14 +15,14 @@ export const ShaparooForm = () => {
   // Prepare states
   const [name, setName] = useState("");
   const [form, setForm] = useState("");
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("#0000FF");
   const [loading, setLoading] = useState(true);
 
   // Reset changable input fields
   const handleInputsReset = () => {
     setName("");
     setForm("");
-    setColor("");
+    setColor("#0000FF");
   };
 
   const handleShaparooFetch = (data: any) => {
@@ -145,16 +145,20 @@ export const ShaparooForm = () => {
 
             <fieldset>
               <label className="form-label" htmlFor="form">
-                Enter form:
+                Choose form:
               </label>
-              <input
+              <select
                 className="form-input"
-                type="text"
                 id="form"
                 name="form"
                 value={form}
                 onChange={(e) => setForm(e.currentTarget.value)}
-              />
+              >
+                <option value="">Please select ...</option>
+                <option value="triangle">triangle</option>
+                <option value="circle">circle</option>
+                <option value="square">square</option>
+              </select>
             </fieldset>
           </div>
 
@@ -165,7 +169,7 @@ export const ShaparooForm = () => {
               </label>
               <input
                 className="form-input"
-                type="text"
+                type="color"
                 id="color"
                 name="color"
                 value={color}

@@ -5,13 +5,11 @@ import { Header } from "./components/header";
 import { Welcome } from "./components/welcome";
 import {
   Shaparoo,
-  ShaparooGallery,
   ShaparooNew,
   ShaparooShow,
   ShaparooEdit,
 } from "./components/shaparoo";
-
-import { ShaparooForm } from "./components/shaparoo-form";
+import { ShaparooGallery } from "./components/shaparoo-gallery";
 
 function App() {
   return (

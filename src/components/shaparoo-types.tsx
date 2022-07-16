@@ -24,3 +24,14 @@ export interface ShaparooListRowUI {
   };
   handleShaparooRemove: (id: number, name: string) => void;
 }
+
+export interface ShaparooCardUI {
+  position: number;
+  shaparoo: {
+    id: number;
+    name: string;
+    form: string;
+    color: string;
+  };
+  handleShaparooRemove: (id: number, name: string) => void;
+}
