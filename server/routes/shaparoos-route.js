@@ -12,6 +12,11 @@ const router = express.Router()
 // this means that '/all' translates to '/shaparoos/all'
 router.get('/all', shaparoosRoutes.shaparoosAll)
 
+// Add route for GET request to retrieve one shaparoo
+// In server.js, shaparoos route is specified as '/shaparoos'
+// this means that '/all' translates to '/shaparoos/one'
+router.get('/one', shaparoosRoutes.shaparoosOne)
+
 // Add route for POST request to create new shaparoo
 // In server.js, shaparoos route is specified as '/shaparoos'
 // this means that '/create' translates to '/shaparoos/create'

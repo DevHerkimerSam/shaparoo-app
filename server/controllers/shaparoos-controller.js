@@ -2,15 +2,15 @@
 const knex = require('./../db')
 
 // Retrieve one shaparoo
-exports.shaparooGet = async (req, res) => {
+exports.shaparoosOne = async (req, res) => {
+
   // Get all shaparoos from database
   knex
     .select('*') // select all columsn
     .from('shaparoos') // from 'shaparoos' table
-    .where('id', req.body.id) // find correct record based on id
-    .first().then((row) => row)
+    .where('id', req.query.id) // find correct record based on id
     .then(userData => {
-      // Send shaparooss extracted from database in response
+      // Send shaparoo extracted from database in response
       res.json(userData)
     })
     .catch(err => {
@@ -26,7 +26,7 @@ exports.shaparoosAll = async (req, res) => {
     .select('*') // select all columns
     .from('shaparoos') // from 'shaparoos' table
     .then(userData => {
-      // Send shaparooss extracted from database in response
+      // Send shaparoos extracted from database in response
       res.json(userData)
     })
     .catch(err => {

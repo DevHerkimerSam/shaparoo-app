@@ -11,6 +11,8 @@ import {
   ShaparooEdit,
 } from "./components/shaparoo";
 
+import { ShaparooForm } from "./components/shaparoo-form";
+
 function App() {
   return (
     <div className="App">
