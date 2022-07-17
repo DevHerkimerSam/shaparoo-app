@@ -1,27 +1,21 @@
 import React from "react";
-import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Header } from "./components/header";
-import { Welcome } from "./components/welcome";
-import {
-  Shaparoo,
-  ShaparooNew,
-  ShaparooShow,
-  ShaparooEdit,
-} from "./components/shaparoo";
+import { Shaparoo, ShaparooShow } from "./components/shaparoo";
+import { ShaparooForm } from "./components/shaparoo-form";
 import { ShaparooGallery } from "./components/shaparoo-gallery";
 
 function App() {
   return (
-    <div className="App">
+    <div className="container-flex">
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<Welcome />} />
+          <Route path="/" element={<ShaparooGallery />} />
           <Route path="/shaparoos" element={<Shaparoo />}>
             <Route index element={<ShaparooGallery />} />
-            <Route path="new" element={<ShaparooNew />} />
-            <Route path=":id/edit" element={<ShaparooEdit />} />
+            <Route path="new" element={<ShaparooForm />} />
+            <Route path=":id/edit" element={<ShaparooForm />} />
             <Route path=":id" element={<ShaparooShow />} />
           </Route>
         </Routes>

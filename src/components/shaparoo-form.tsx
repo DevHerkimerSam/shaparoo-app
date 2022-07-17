@@ -5,7 +5,6 @@ import axios from "axios";
 
 export const ShaparooForm = () => {
   let { id } = useParams();
-  console.log(id);
   if (id === undefined) {
     id = "0";
   }
@@ -26,7 +25,6 @@ export const ShaparooForm = () => {
   };
 
   const handleShaparooFetch = (data: any) => {
-    console.log("data.length: " + data.length);
     if (data.length === 0) {
       handleInputsReset();
     } else {
@@ -123,66 +121,65 @@ export const ShaparooForm = () => {
   };
 
   return (
-    <div className="shaparoo-list-wrapper">
-      {/* Form for creating new shaparoo */}
-      <div className="shaparoo-list-form">
-        <div className="form-wrapper" onSubmit={handleShaparooSubmit}>
-          <div className="form-row">
-            <input type="hidden" id="id" name="id" value={shaparooId} />
-            <fieldset>
-              <label className="form-label" htmlFor="name">
-                Enter name:
-              </label>
-              <input
-                className="form-input"
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.currentTarget.value)}
-              />
-            </fieldset>
-
-            <fieldset>
-              <label className="form-label" htmlFor="form">
-                Choose form:
-              </label>
-              <select
-                className="form-input"
-                id="form"
-                name="form"
-                value={form}
-                onChange={(e) => setForm(e.currentTarget.value)}
-              >
-                <option value="">Please select ...</option>
-                <option value="triangle">triangle</option>
-                <option value="circle">circle</option>
-                <option value="square">square</option>
-              </select>
-            </fieldset>
-          </div>
-
-          <div className="form-row">
-            <fieldset>
-              <label className="form-label" htmlFor="color">
-                Enter color:
-              </label>
-              <input
-                className="form-input"
-                type="color"
-                id="color"
-                name="color"
-                value={color}
-                onChange={(e) => setColor(e.currentTarget.value)}
-              />
-            </fieldset>
-          </div>
+    <div className="container">
+      <h2>
+        {shaparooId === "0"
+          ? "Make a Shaparoo!"
+          : `Edit Shaparoo: ${shaparooId}`}
+      </h2>
+      <form onSubmit={handleShaparooSubmit}>
+        {/* Form for creating new shaparoo */}
+        <input type="hidden" id="id" name="id" value={shaparooId} />
+        <div className="form-group">
+          <label className="form-label" htmlFor="name">
+            Enter name:
+          </label>
+          <input
+            className="form-input"
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={(e) => setName(e.currentTarget.value)}
+          />
         </div>
 
-        <button onClick={handleShaparooSubmit} className="btn btn-add">
+        <div className="form-group">
+          <label className="form-label" htmlFor="form">
+            Choose form:
+          </label>
+          <select
+            className="form-input"
+            id="form"
+            name="form"
+            value={form}
+            onChange={(e) => setForm(e.currentTarget.value)}
+          >
+            <option value="">Please select ...</option>
+            <option value="triangle">triangle</option>
+            <option value="circle">circle</option>
+            <option value="square">square</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label className="form-label" htmlFor="color">
+            Pick color:
+          </label>
+          <input
+            className="form-input"
+            type="color"
+            id="color"
+            name="color"
+            value={color}
+            onChange={(e) => setColor(e.currentTarget.value)}
+          />
+        </div>
+
+        <button onClick={handleShaparooSubmit} className="btn btn-primary">
           {shaparooId === "0" ? "Add" : "Update"}
         </button>
-      </div>
+      </form>
     </div>
   );
 };

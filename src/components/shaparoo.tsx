@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 // Import components
 import { ShaparooForm } from "./shaparoo-form";
+import { ShaparooCard } from "./shaparoo-card";
 
 // Import styles
 import "./../styles/shaparoo.css";

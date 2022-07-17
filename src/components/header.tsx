@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar } from "./navbar";
 // Import styles
 import "./../styles/nav.css";
+import { Navbar } from "./navbar";
 
 export const Header = () => {
   return (

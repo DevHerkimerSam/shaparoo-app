@@ -1,19 +1,23 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import { ShaparooImage } from "./shaparoo-image";
 
 // Import interfaces
 import { ShaparooCardUI } from "./shaparoo-types";
 
 export function ShaparooCard(props: ShaparooCardUI) {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Body>
-        <Card.Title>{props.shaparoo.name}</Card.Title>
-        <Card.Text>
-          <svg width="200" height="200" version="1.1">
-            <circle cx="25" cy="75" r="20" fill={props.shaparoo.color} />
-          </svg>
-        </Card.Text>
-      </Card.Body>
-    </Card>
+    <Link className="card-link" to={`/shaparoos/${props.shaparoo.id}`}>
+      <Card style={{ width: "18rem" }}>
+        <Card.Body>
+          <Card.Title>{props.shaparoo.name}</Card.Title>
+          <ShaparooImage
+            form={props.shaparoo.form}
+            color={props.shaparoo.color}
+          />
+        </Card.Body>
+      </Card>
+    </Link>
   );
 }

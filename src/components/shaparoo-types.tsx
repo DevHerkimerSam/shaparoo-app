@@ -35,3 +35,8 @@ export interface ShaparooCardUI {
   };
   handleShaparooRemove: (id: number, name: string) => void;
 }
+
+export interface ShaparooImageUI {
+  form: string;
+  color: string;
+}
